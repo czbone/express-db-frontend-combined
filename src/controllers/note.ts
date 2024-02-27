@@ -2,7 +2,6 @@ import { Note } from '@/models'
 import { NextFunction, Request, RequestHandler, Response } from 'express'
 
 type Note = {
-  id: string
   message: string
 }
 
