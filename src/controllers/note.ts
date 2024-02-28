@@ -17,6 +17,7 @@ class NoteController {
   list: RequestHandler = async (req: Request, res: Response, _next: NextFunction) => {
     const notes: NoteDoc[] = await Note.getNotes()
     if (notes) {
+      // クライアントに返すデータを制限
       const responseNotes: ResponseNote[] = notes.map((note) => ({
         id: note._id,
         message: note.message
@@ -38,7 +39,6 @@ class NoteController {
   }
   delete: RequestHandler = async (req: Request, res: Response, _next: NextFunction) => {
     const noteId = req.params.id
-    console.log(noteId)
 
     const note = await Note.deleteNote(noteId)
     if (note) {
