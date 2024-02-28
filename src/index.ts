@@ -18,7 +18,6 @@ if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'))
 app.use(express.json())
 
 // フロントエンドをルーティング
-// ***** ここから *****
 app.use(express.static(path.resolve(__dirname, '../frontend/dist'))) // フロントエンドモジュールが存在しない場合はエラー(500)を表示
 app.use((req, res, next) => {
   if (req.originalUrl.startsWith('/api')) {
@@ -27,7 +26,6 @@ app.use((req, res, next) => {
     res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'))
   }
 })
-// ***** ここまで *****
 
 // APIをルーティング
 app.use('/api', router)
