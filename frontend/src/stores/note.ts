@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import config from '@/config'
 
 type Note = {
-  _id: string
+  id: string
   message: string
 }
 

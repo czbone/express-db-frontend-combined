@@ -6,7 +6,7 @@
         <QItem v-for="(note, index) in notes" :key="index">
           <QItemSection>{{ note.message }}</QItemSection>
           <QItemSection side>
-            <QBtn color="negative" @click="removeNote(note._id)">削除</QBtn>
+            <QBtn color="negative" @click="removeNote(note.id)">削除</QBtn>
           </QItemSection>
         </QItem>
       </QList>
